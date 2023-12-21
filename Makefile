@@ -6,3 +6,10 @@ install-precommit:
 run-precommit: install-precommit
 	# Runs all pre-commit hooks, automatically runs during commits.
 	pre-commit run
+
+start-project:
+	docker compose up --build
+
+compile-requirements:
+	# update the requirements in geoProject/pyproject.toml and then run this command
+	docker compose exec web pip-compile
