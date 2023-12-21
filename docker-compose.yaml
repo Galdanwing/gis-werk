@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    build: geoProject
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - default
+    volumes:
+      - ./geoProject:/code
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+
+  postgres:
+    image: "postgis/postgis"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "geoPass"
+      POSTGRES_USER: "geoUser"
+      POSTGRES_DB: "geoDB"
+    networks:
+      - default
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d geoDB -U geoUser"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+networks:
+  default:
