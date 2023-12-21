@@ -21,3 +21,10 @@ run-tests:
 migrate:
 	docker compose exec web ./manage.py makemigrations
 	docker compose exec web ./manage.py migrate
+
+import-data:
+	# Command assumes data is located in geoProject/geoProject/
+	docker compose exec web ./manage.py ingest_data municipalities_nl.geojson
+
+create-superuser:
+	docker compose exec web ./manage.py createsuperuser --username admin --noinput --email admin@admin.admin
