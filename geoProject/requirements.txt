@@ -51,6 +51,10 @@ hatchling==1.21.0
     # via geo-Project (pyproject.toml)
 markdown==3.5.1
     # via geo-Project (pyproject.toml)
+markdown-it-py==3.0.0
+    # via rich
+mdurl==0.1.2
+    # via markdown-it-py
 numpy==1.26.2
     # via
     #   pandas
@@ -70,6 +74,8 @@ pluggy==1.3.0
     # via hatchling
 psycopg2-binary==2.9.9
     # via geo-Project (pyproject.toml)
+pygments==2.17.2
+    # via rich
 pyjwt==2.8.0
     # via djangorestframework-simplejwt
 pyproj==3.6.1
@@ -82,6 +88,8 @@ pytz==2023.3.post1
     # via
     #   djangorestframework
     #   pandas
+rich==13.7.0
+    # via geo-Project (pyproject.toml)
 shapely==2.0.2
     # via geopandas
 six==1.16.0
