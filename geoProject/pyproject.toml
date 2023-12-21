@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "geo-Project"
+version = "42"
+dependencies = ["django<=5", "psycopg2-binary", "pip-tools"]
+
+[project.optional-dependencies]
+dev = ["pytest"]

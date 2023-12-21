@@ -25,7 +25,7 @@ exclude = '''
 [tool.isort]
 line_length = 99
 profile = "black"
-known_first_party = []
+known_first_party = ["geoProject", "geoWorld"]
 multi_line_output = 3
 default_section = "THIRDPARTY"
 skip = "venv/"
