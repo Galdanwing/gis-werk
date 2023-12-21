@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from geoWorld.models import Municipality
+from geoWorld.serializers import MunicipalitySerializer
+
+
+class MunicipalityViewSet(viewsets.ModelViewSet):
+    queryset = Municipality.objects.all()
+    serializer_class = MunicipalitySerializer

@@ -4,10 +4,12 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from geoProject.viewsets import UserViewSet
+from geoWorld.views import MunicipalityViewSet
 
-# Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
+router.register(r"municipalities", MunicipalityViewSet)
+
 
 urlpatterns = [
     path("", include(router.urls)),
