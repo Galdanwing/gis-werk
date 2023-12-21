@@ -5,7 +5,11 @@ build-backend = "hatchling.build"
 [project]
 name = "geo-Project"
 version = "42"
-dependencies = ["django<=5", "psycopg2-binary", "pip-tools"]
+dependencies = ["django<=5", "psycopg2-binary", "pip-tools", "hatchling"]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "pytest-django"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "geoProject.settings"
+python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]

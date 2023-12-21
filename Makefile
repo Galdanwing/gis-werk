@@ -13,3 +13,7 @@ start-project:
 compile-requirements:
 	# update the requirements in geoProject/pyproject.toml and then run this command
 	docker compose exec web pip-compile
+	docker compose exec web pip-compile --extra dev -o requirements-dev.txt
+
+run-tests:
+	docker compose exec web pytest

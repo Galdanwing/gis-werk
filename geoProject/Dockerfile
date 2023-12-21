@@ -19,8 +19,8 @@ ENV PATH="/home/myuser/.local/bin:${PATH}"
 USER myuser
 
 # Copy requirements and install them separately to leverage Docker cache
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt --user
+COPY requirements-dev.txt requirements-dev.txt
+RUN pip install --no-cache-dir -r requirements-dev.txt --user
 
 # Copy the rest of the application code
 COPY . .
