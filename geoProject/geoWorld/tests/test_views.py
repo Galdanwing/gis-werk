@@ -1,3 +1,5 @@
+from urllib.parse import urlencode
+
 from django.contrib.auth.models import User
 from django.urls import reverse
 from rest_framework import status
@@ -27,6 +29,25 @@ class MunicipalityViewSetTest(APITestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
+
+    def test_list_municipalities_in_bbox_filter(self):
+        # Create a second municipality that will get filtered out.
+        other_municipality_data = {
+            "name": "Other Municipality",
+            "geometry": "MULTIPOLYGON (((7 54, 7 55, 8 55, 8 54, 7 54)))",
+        }
+        Municipality.objects.create(**other_municipality_data)
+
+        # Perform a request with the InBBoxFilter
+        bbox_filter_params = {"in_bbox": "0,0,1,1"}
+        response = self.client.get(f"{self.url}?{urlencode(bbox_filter_params)}")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # Ensure that only one result is returned (the original municipality)
+        self.assertEqual(len(response.data["results"]), 1)
+
+        # Ensure that the result is the original municipality, not the other one
+        self.assertEqual(response.data["results"][0]["name"], "Test Municipality")
 
     def test_create_municipality(self):
         new_municipality_data = {
