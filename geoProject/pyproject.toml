@@ -16,7 +16,8 @@ dependencies = [
     "djangorestframework-simplejwt",
     "djangorestframework-gis",
     "geopandas",
-    "rich"]
+    "rich",
+    "drf-spectacular"]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-django"]
