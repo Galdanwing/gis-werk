@@ -14,10 +14,15 @@ django==5.0
     # via
     #   django-filter
     #   djangorestframework
+    #   djangorestframework-simplejwt
     #   geo-Project (pyproject.toml)
 django-filter==23.5
     # via geo-Project (pyproject.toml)
 djangorestframework==3.14.0
+    # via
+    #   djangorestframework-simplejwt
+    #   geo-Project (pyproject.toml)
+djangorestframework-simplejwt==5.3.1
     # via geo-Project (pyproject.toml)
 editables==0.5
     # via hatchling
@@ -42,6 +47,8 @@ pluggy==1.3.0
     #   pytest
 psycopg2-binary==2.9.9
     # via geo-Project (pyproject.toml)
+pyjwt==2.8.0
+    # via djangorestframework-simplejwt
 pyproject-hooks==1.0.0
     # via build
 pytest==7.4.3
