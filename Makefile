@@ -17,3 +17,7 @@ compile-requirements:
 
 run-tests:
 	docker compose exec web pytest
+
+migrate:
+	docker compose exec web ./manage.py makemigrations
+	docker compose exec web ./manage.py migrate
