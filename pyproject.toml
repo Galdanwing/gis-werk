@@ -1,0 +1,58 @@
+[tool.black]
+line-length = 99
+target-version = ['py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[tool.isort]
+line_length = 99
+profile = "black"
+known_first_party = []
+multi_line_output = 3
+default_section = "THIRDPARTY"
+skip = "venv/"
+skip_glob = "**/migrations/*.py" # Django only.
+include_trailing_comma = true
+force_grid_wrap = 0
+
+
+[tool.mypy]
+python_version = '3.12'
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+enable_error_code = [
+    "truthy-bool",
+]
+
+
+[tool.ruff]
+line-length = 99
+exclude = [".git", "*/migrations/*", "docs", "venv", "config/**"]
+per-file-ignores = { "__init__.py" = ["F401", "F403"] }
+
+
+[tool.pytest.ini_options]
+python_files = [
+    "test*.py",
+]

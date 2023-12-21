@@ -1,0 +1,65 @@
+default_stages: [ commit, push ]
+default_language_version:
+  python: python3
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-toml
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+      - id: debug-statements
+      - id: check-merge-conflict
+
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+        name: black-backend
+        files: backend/
+        args: [ "--config", "pyproject.toml" ]
+
+  - repo: https://github.com/pycqa/isort
+    # Automatically keeps your imports sorted in a specific way.
+    # Requires configuration to see which modules are first party.
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort-backend
+        files: backend/
+        args: [ "--settings-path", "pyproject.toml", ]
+
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # A flake8 replacement, that uses Rust underwater.
+    rev: v0.0.292
+    hooks:
+      - id: ruff
+        name: lint-backend
+        files: backend/
+        args: [ "--config", "pyproject.toml" ]
+
+  - repo: https://github.com/asottile/pyupgrade
+    # Automatically updates old python structures to new ones
+    rev: v3.14.0
+    hooks:
+      - id: pyupgrade
+        args: [ --py312-plus ]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.5.1'
+    hooks:
+      - id: mypy
+        name: mypy-backend
+        args: [ "--config-file", "pyproject.toml" ]
+
+
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: 1.15.0
+    hooks:
+      - id: django-upgrade
+        args: [ --target-version, "4.2" ]
