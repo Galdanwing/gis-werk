@@ -11,6 +11,13 @@ build==1.0.3
 click==8.1.7
     # via pip-tools
 django==5.0
+    # via
+    #   django-filter
+    #   djangorestframework
+    #   geo-Project (pyproject.toml)
+django-filter==23.5
+    # via geo-Project (pyproject.toml)
+djangorestframework==3.14.0
     # via geo-Project (pyproject.toml)
 editables==0.5
     # via hatchling
@@ -18,6 +25,8 @@ hatchling==1.21.0
     # via geo-Project (pyproject.toml)
 iniconfig==2.0.0
     # via pytest
+markdown==3.5.1
+    # via geo-Project (pyproject.toml)
 packaging==23.2
     # via
     #   build
@@ -41,6 +50,8 @@ pytest==7.4.3
     #   pytest-django
 pytest-django==4.7.0
     # via geo-Project (pyproject.toml)
+pytz==2023.3.post1
+    # via djangorestframework
 sqlparse==0.4.4
     # via django
 trove-classifiers==2023.11.29
