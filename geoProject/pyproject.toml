@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "geo-Project"
 version = "42"
-dependencies = ["django<=5", "psycopg2-binary", "pip-tools", "hatchling", "djangorestframework", "markdown", "django-filter", "djangorestframework-simplejwt"]
+dependencies = ["django<=5", "psycopg2-binary", "pip-tools", "hatchling", "djangorestframework", "markdown", "django-filter", "djangorestframework-simplejwt", "djangorestframework-gis", "geopandas"]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-django"]

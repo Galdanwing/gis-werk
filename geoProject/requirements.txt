@@ -6,10 +6,24 @@
 #
 asgiref==3.7.2
     # via django
+attrs==23.1.0
+    # via fiona
 build==1.0.3
     # via pip-tools
+certifi==2023.11.17
+    # via
+    #   fiona
+    #   pyproj
 click==8.1.7
-    # via pip-tools
+    # via
+    #   click-plugins
+    #   cligj
+    #   fiona
+    #   pip-tools
+click-plugins==1.1.1
+    # via fiona
+cligj==0.7.2
+    # via fiona
 django==5.0
     # via
     #   django-filter
@@ -20,20 +34,34 @@ django-filter==23.5
     # via geo-Project (pyproject.toml)
 djangorestframework==3.14.0
     # via
+    #   djangorestframework-gis
     #   djangorestframework-simplejwt
     #   geo-Project (pyproject.toml)
+djangorestframework-gis==1.0
+    # via geo-Project (pyproject.toml)
 djangorestframework-simplejwt==5.3.1
     # via geo-Project (pyproject.toml)
 editables==0.5
     # via hatchling
+fiona==1.9.5
+    # via geopandas
+geopandas==0.14.1
+    # via geo-Project (pyproject.toml)
 hatchling==1.21.0
     # via geo-Project (pyproject.toml)
 markdown==3.5.1
     # via geo-Project (pyproject.toml)
+numpy==1.26.2
+    # via
+    #   pandas
+    #   shapely
 packaging==23.2
     # via
     #   build
+    #   geopandas
     #   hatchling
+pandas==2.1.4
+    # via geopandas
 pathspec==0.12.1
     # via hatchling
 pip-tools==7.3.0
@@ -44,14 +72,28 @@ psycopg2-binary==2.9.9
     # via geo-Project (pyproject.toml)
 pyjwt==2.8.0
     # via djangorestframework-simplejwt
+pyproj==3.6.1
+    # via geopandas
 pyproject-hooks==1.0.0
     # via build
+python-dateutil==2.8.2
+    # via pandas
 pytz==2023.3.post1
-    # via djangorestframework
+    # via
+    #   djangorestframework
+    #   pandas
+shapely==2.0.2
+    # via geopandas
+six==1.16.0
+    # via
+    #   fiona
+    #   python-dateutil
 sqlparse==0.4.4
     # via django
 trove-classifiers==2023.11.29
     # via hatchling
+tzdata==2023.3
+    # via pandas
 wheel==0.42.0
     # via pip-tools
 
